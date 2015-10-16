@@ -21,16 +21,29 @@ $('#get-fortune-button').on('click', getFortune);
 
 
 // PART 2: SHOW WEATHER
+function showWeather(results){
+  var weatherData = results;
+  console.log(weatherData);
+  var forecast = weatherData['forecast'];
+  console.log(forecast);
+  $('#weather-info').html(forecast);
 
-function showWeather(evt) {
-    evt.preventDefault();
-
-    var url = "/weather?zipcode=" + $("#zipcode-field").val();
-
-    // TODO: request weather with that URL and show the forecast in #weather-info
 }
 
-$("#weather-form").on('submit', showWeather);
+
+function getWeather(evt) {
+    evt.preventDefault(); // when you submit the from, don't call the default action, which is to go to a new page
+    var zip = $("#zipcode-field").val();
+    console.log(zip);
+    var constructedUrl = "/weather.json?zipcode=" + zip;
+    console.log(constructedUrl);
+    // TODO: request weather with that URL and show the forecast in #weather-info
+
+    $.get(constructedUrl, showWeather);
+}
+
+
+$("#weather-form").on('submit', getWeather);
 
 
 
