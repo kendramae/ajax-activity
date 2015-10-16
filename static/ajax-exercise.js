@@ -3,12 +3,18 @@
 
 // PART 1: SHOW A FORTUNE
 
-function showFortune(evt) {
-
+function showFortune(results) {
+    var fortune = results;
     // TODO: get the fortune and show it in the #fortune-text div
+    $('#fortune-text').html(fortune);
 }
 
-$('#get-fortune-button').on('click', showFortune);
+function getFortune() {
+    $.get('/fortune', showFortune);
+}
+
+
+$('#get-fortune-button').on('click', getFortune);
 
 
 
