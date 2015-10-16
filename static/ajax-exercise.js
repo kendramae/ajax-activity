@@ -22,11 +22,11 @@ $('#get-fortune-button').on('click', getFortune);
 
 // PART 2: SHOW WEATHER
 function showWeather(results){
-  var weatherData = results;
-  console.log(weatherData);
-  var forecast = weatherData['forecast'];
-  console.log(forecast);
-  $('#weather-info').html(forecast);
+    var weatherData = results;
+    console.log(weatherData);
+    var forecast = weatherData['forecast'];
+    console.log(forecast);
+    $('#weather-info').html(forecast);
 
 }
 
